@@ -30,7 +30,7 @@ import atexit
 
 comptetitor_file = ''
 competitors_csv = f'./followers_competitors/{comptetitor_file}.csv'
-path_to_exec = #'/Users/alessandro.vitelli/Downloads/chromedriver'
+path_to_exec = ''#'/Users/alessandro.vitelli/Downloads/chromedriver'
 
 #Define Competitors
 ig_usr = ''
