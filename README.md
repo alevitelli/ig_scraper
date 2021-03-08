@@ -1,2 +1,2 @@
 # ig_scraper
-Instagram scraper that returns most common influencers of people following target accounts
+Instagram scraper that returns most common influencers of people following target accounts. Test PR
