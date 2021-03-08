@@ -57,10 +57,10 @@ def extract_foll_info(driver, account, var):
         df_followers = pd.DataFrame({'followers': links_final})
         csv_name = './followees/followers_' + str(account) + '.csv'
         df_followers.to_csv(csv_name, sep='\t')
-        print 'Fetched all info and created csv file'
+        print('Fetched all info and created csv file')
     elif var == False:
         return links_final
-        print 'Fetced all info for ' + str(account)
+        print('Fetced all info for ' + str(account))
 
 #Loads 15k followers for an account
 def fetch_followers(driver, account):
@@ -79,10 +79,10 @@ def fetch_followers(driver, account):
         time.sleep(2.5)
         if random.randint(1,20) == 5:
             time.sleep(random.randint(4,8))
-            print 'Random pause: ' + str(i) + '. Followers to go: ' + str((12000 - count))
+            print('Random pause: ' + str(i) + '. Followers to go: ' + str((12000 - count)))
             i += 1
     extract_foll_info(driver, account, True)
-    print 'Process Complete for ' + str(account)
+    print('Process Complete for ' + str(account))
 
 
 #Starting Chrome Browser
@@ -93,4 +93,4 @@ login(driver)
 global_following = []
 for competitor in competitors:
     followers = fetch_followers(driver, competitor)
-    print 'Fetched followers for ' + str(competitor)
+    print('Fetched followers for ' + str(competitor)
