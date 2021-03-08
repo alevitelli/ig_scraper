@@ -3,7 +3,7 @@ Instagram scraper fetches sample of followers from target pages and in turn, for
 
 The output of the final file will be of the sorts:
 
-tesla_scraped.csv
+`tesla_scraped.csv`
 
 | Acccount  | Number of Followers | Percentage |
 | ------------- | ------------- | ------------- |
