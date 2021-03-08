@@ -93,4 +93,4 @@ login(driver)
 global_following = []
 for competitor in competitors:
     followers = fetch_followers(driver, competitor)
-    print('Fetched followers for ' + str(competitor)
+    print('Fetched followers for ' + str(competitor))
