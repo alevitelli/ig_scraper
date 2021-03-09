@@ -7,7 +7,7 @@
 
 from selenium import webdriver
 from utils import login, fetch_followers
-import params as params
+import params
 
 #Starting Chrome Browser
 driver = webdriver.Chrome(params.path_to_exec) 
