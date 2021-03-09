@@ -5,16 +5,6 @@
 # FETCHES MAX 1.5K FOLLOWINGS FOR EACH FOLLOWER IN THE COMPETITOR'S CSV
 # AGGREGATES ALL FOLLOWINGS AND CREATES CSV WITH FREQUENCIES
 
-#################################################################################
-##################            REQUIREMENTS                   ####################
-#################################################################################
-
-# DOWNLOAD EXEC DRIVER FOR YOUR BROWSER - SPECIFY PATH TO EXEC
-# INSERT INSTAGRAM CREDENTIALS
-# DEFINE PATH TO COMPETITOR'S FILE
-
-#################################################################################
-
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import requests
