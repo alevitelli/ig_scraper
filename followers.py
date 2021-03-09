@@ -5,16 +5,6 @@
 # FETCHES SAMPLE OF 12K FOLLOWERS FOR LIST OF COMPETITORS
 # CREATES CSV FILE FOR EACH COMPETITOR WITH ALL THE FOLLOWERS USERNAMES
 
-#################################################################################
-##################            REQUIREMENTS                   ####################
-#################################################################################
-
-# DOWNLOAD DRIVER EXECUTABLE FOR YOUR BROWSER - SPECIFY PATH TO EXEC
-# INSERT INSTAGRAM CREDENTIALS
-# DEFINE COMPETITORS (IG USERNAMES)
-
-#################################################################################
-
 from selenium import webdriver
 from utils import login, fetch_followers
 import params as params
