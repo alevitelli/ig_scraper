@@ -5,7 +5,8 @@
 # FETCHES MAX 1.5K FOLLOWINGS FOR EACH FOLLOWER IN THE COMPETITOR'S CSV
 # AGGREGATES ALL FOLLOWINGS AND CREATES CSV WITH FREQUENCIES
 
-import params as params
+from selenium import webdriver
+import params
 from utils import login, return_foll_info, fetch_following, exit_handler
 
 is_blocked = False
