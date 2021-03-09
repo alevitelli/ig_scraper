@@ -18,7 +18,7 @@ import pandas as pd
 import random
 import atexit
 from collections import Counter
-import params
+import params as params
 from utils import login, return_foll_info
 
 is_blocked = False
