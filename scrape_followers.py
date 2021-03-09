@@ -27,44 +27,13 @@ from selenium.webdriver.support import expected_conditions as EC
 import pandas as pd
 import random
 import atexit
+from collections import Counter
+import params
+from utils import login, return_foll_info
 
-comptetitor_file = ''
-competitors_csv = f'./followers_competitors/{comptetitor_file}.csv'
-path_to_exec = ''#'/Users/alessandro.vitelli/Downloads/chromedriver'
-
-#Define Competitors
-ig_usr = ''
-ig_pwd = ''
-competitors = []
 is_blocked = False
 
-#Login into Instagram
-def login(driver):
-    usr = ig_usr
-    pwd = ig_pwd
-    driver.get('https://www.instagram.com/blueapron/followers')
-    time.sleep(2)
-    driver.find_element_by_name("username").send_keys(usr)
-    driver.find_element_by_name("password").send_keys(pwd)
-    time.sleep(1)
-    driver.find_elements(By.XPATH, '//button')[0].click()
-    time.sleep(2)
-
 #Extract followers info once they have loaded
-def extract_foll_info(driver, account, var):
-    css_sel = "body > div:nth-child(12)"
-    foll_box = driver.find_element_by_css_selector(css_sel)
-    xpath = '/html/body/div[3]/div/div[2]/div/div[2]/ul/div'
-    links = foll_box.find_element_by_xpath(xpath).text
-    links_final = [link.split('\n')[0] for link in links.split('\nFollow\n')]
-    if var == True:
-        df_followers = pd.DataFrame({'followers': links_final})
-        csv_name = 'followers_' + str(account) + '.csv'
-        df_followers.to_csv(csv_name, sep='\t')
-        print('Fetched all info and created csv file')
-    elif var == False:
-        return links_final
-        print('Fetched all info for ' + str(account))
 
 #Loads following for an account
 def fetch_following(driver, account):
@@ -94,13 +63,11 @@ def fetch_following(driver, account):
             count_2 = count
             i += 1
     time.sleep(3)
-    foll_list = extract_foll_info(driver, account, False)
-    return foll_list
+    return return_foll_info(driver)
 
 def exit_handler():
     global global_following
     flat_glob_foll = [item for sublist in global_following for item in sublist]
-    from collections import Counter
     count_glob_foll = Counter()
     for follow in flat_glob_foll:
         count_glob_foll[follow] += 1
@@ -111,13 +78,13 @@ def exit_handler():
     print(f'Saved CSV for {comptetitor_file}')
 
 #Starting Chrome Browser
-driver = webdriver.Chrome(path_to_exec)
+driver = webdriver.Chrome(params.path_to_exec)
 login(driver)
 
 global_following = []
 
 #Insert path to competitors followers list
-followers = pd.read_csv(competitors_csv, sep='\t')
+followers = pd.read_csv(params.csv_name, sep='\t')
 followers = followers['followers'].values.tolist()
 
 i = 0
