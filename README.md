@@ -15,10 +15,14 @@ The output of the final file will be of the sorts:
 | Grimes  | 7,657  | 63%  | 
 
 ## Usage
-Access to params.py file in order to specifiy relevant information such as:
+Access to `params.py` file in order to specifiy relevant information such as:
 - path to chrome drive (you can download the chrome driver [here](https://chromedriver.chromium.org/downloads)
 - Instagram username and password
 - Instagram account name to scrape
+
+The file `followers.py` is to be run first. This compiles a csv (name defined in the `params.py` file) with a sample of 12k followers form the target account. 
+
+The file `scrape_followers.py` then loops through that csv and for each of those followers, scrapes a maximum of 1.5k followings. The followings are then aggregated and outputted as in the example in the overview section.
 
 ## Caveat
 The scraper was coded in 2018. Since then, IG might have changed XPATHs of many elements on it's website. Some debugging might be required.
